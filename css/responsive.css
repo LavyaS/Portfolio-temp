@@ -1,0 +1,150 @@
+/* ==========================================================================
+   responsive.css — breakpoints & mobile navigation
+   Base styles in style.css already target small screens where sensible;
+   this file handles structural changes across breakpoints.
+   ========================================================================== */
+
+/* ---------- Mobile navigation (< 900px) ---------- */
+@media (max-width: 899px) {
+	.nav__toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.nav__menu {
+		position: fixed;
+		inset: 0;
+		top: var(--header-h);
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 0;
+		background: var(--bg);
+		padding: var(--space-xl) var(--container-pad);
+		transform: translateX(100%);
+		transition: transform var(--dur-slow) var(--ease);
+		visibility: hidden;
+	}
+
+	.nav__menu.is-open {
+		transform: translateX(0);
+		visibility: visible;
+	}
+
+	.nav__list {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--space-lg);
+		margin-bottom: var(--space-2xl);
+	}
+
+	.nav__link {
+		font-size: var(--fs-xl);
+		font-family: var(--font-display);
+		color: var(--text-primary);
+	}
+	.nav__link::after { display: none; }
+	.nav__link.is-active { color: var(--accent); }
+
+	.nav__cta {
+		align-self: flex-start;
+	}
+}
+
+@media (min-width: 900px) {
+	.nav__menu {
+		visibility: visible !important;
+		transform: none !important;
+	}
+}
+
+/* ---------- ≥ 900px: two-column hero, about, projects ---------- */
+@media (max-width: 899px) {
+	.hero__inner {
+		grid-template-columns: 1fr;
+		padding-block: var(--space-2xl);
+		gap: var(--space-2xl);
+	}
+
+	.hero__panel { order: 2; }
+
+	.about__grid {
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+	}
+
+	.project-card,
+	.project-card--reverse {
+		grid-template-columns: 1fr;
+	}
+	.project-card__media,
+	.project-card--reverse .project-card__media {
+		order: -1;
+	}
+	.project-card__body,
+	.project-card--reverse .project-card__body {
+		order: 0;
+	}
+
+	.skills__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.timeline__item {
+		grid-template-columns: 1fr;
+		gap: var(--space-2xs);
+	}
+
+	.contact-link__label {
+		width: auto;
+		flex: 1;
+	}
+	.contact-link__value { display: none; }
+}
+
+/* ---------- Small phones (< 480px) ---------- */
+@media (max-width: 479px) {
+	:root {
+		--header-h: 68px;
+	}
+
+	.hero__actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.hero__actions .btn { width: 100%; }
+
+	.hero__scroll { display: none; }
+
+	.about__meta {
+		grid-template-columns: 1fr;
+	}
+	.meta-item:nth-child(odd) { border-right: none; }
+	.meta-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+	.meta-item:last-child { border-bottom: none; }
+
+	.skills__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.section-title { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+
+	.contact-link__label {
+		font-size: var(--fs-md);
+	}
+}
+
+/* ---------- Tablet / small laptop (900px–1199px) ---------- */
+@media (min-width: 900px) and (max-width: 1199px) {
+	.skills__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* ---------- Large desktop refinements ---------- */
+@media (min-width: 1440px) {
+	:root {
+		--container-max: 1280px;
+	}
+}
