@@ -1,110 +1,66 @@
 # Lavya Singh Chauhan — Portfolio
 
-A personal developer portfolio built with plain HTML, CSS, and JavaScript. No frameworks, no build step, no dependencies beyond Google Fonts.
+My personal developer portfolio — a static site built by hand with no framework, no build
+step and no dependencies.
 
-## Project structure
+**Live site → [lavyas.github.io/Portfolio-temp](https://lavyas.github.io/Portfolio-temp/)**
+
+---
+
+## About
+
+A single-page portfolio structured like a technical specification document: a hairline
+drafting grid as the visual spine, numbered sections, monospace metadata and oversized
+display type, with one accent colour used for structure rather than decoration.
+
+Written in plain HTML, CSS and JavaScript. The interaction work — command palette, scroll
+state, disclosure panels, cursor-tracked hero grid — is all hand-written vanilla JS.
+
+## Stack
+
+| | |
+|---|---|
+| Markup | Semantic HTML |
+| Styling | CSS with custom properties, grid and container-free fluid type |
+| Behaviour | Vanilla JavaScript, no libraries |
+| Type | Archivo, Newsreader, IBM Plex Mono |
+| Hosting | GitHub Pages, deployed by GitHub Actions |
+
+## Structure
 
 ```
-.
-├── index.html              All markup, in section order (hero → work → about → skills → experience → contact)
-├── css/
-│   ├── style.css            Design tokens, base styles, layout, components
-│   ├── responsive.css       Breakpoints and mobile navigation
-│   └── animations.css       Keyframes, scroll reveals, prefers-reduced-motion
-├── js/
-│   ├── navigation.js        Sticky header state, mobile menu, active-link tracking
-│   ├── animations.js        IntersectionObserver-driven scroll reveals
-│   └── main.js               Footer year, small progressive-enhancement setup
-├── assets/
-│   ├── images/               General site images (e.g. og-image.png)
-│   ├── icons/                 Reserved for standalone icon files (icons are currently inline SVG)
-│   └── projects/              Project screenshots (see below)
-└── README.md
+index.html          all page copy
+css/main.css        design tokens and styles, sectioned and commented
+js/app.js           behaviour, as independent modules
+assets/resume.html  print-to-PDF résumé template
+assets/og.svg       social share image
 ```
 
-## Running it locally
-
-No build tools or installation required.
-
-**Option 1 — just open it:**
-Double-click `index.html`, or open it directly in a browser.
-
-**Option 2 — local server (recommended, avoids any browser file:// restrictions):**
+## Running locally
 
 ```bash
-# Python 3
-python3 -m http.server 8000
-
-# or Node, if you have it
-npx serve .
+python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then open <http://localhost:8000>. Opening `index.html` directly from the filesystem also
+works — nothing depends on ES modules or `fetch`.
 
-## Where to edit things
+## Accessibility and browser support
 
-### Personal links (required before publishing)
-Search the project for these placeholders and replace them:
+- No horizontal overflow from 320px to 2560px
+- All text meets WCAG AA contrast on its background
+- Ordered heading levels, labelled landmarks, skip link, visible focus states
+- Full `prefers-reduced-motion`, `forced-colors` and print stylesheets
+- All content renders with JavaScript disabled
 
-| Placeholder | Where | Replace with |
-|---|---|---|
-| `YOUR_GITHUB_URL` | Contact section, footer, each project card | Your GitHub profile / repo URL |
-| `YOUR_LINKEDIN_URL` | Contact section, footer | Your LinkedIn profile URL |
-| `YOUR_EMAIL` | Contact section, footer | Your email address |
-| `YOUR_SITE_URL` | `<head>` Open Graph tag in `index.html` | Your deployed site URL |
+## Status
 
-They're intentionally left as literal, obviously-fake placeholders rather than working links — grep for `YOUR_` to find every instance.
-
-### Project screenshots
-Each project card in `index.html` currently renders a CSS-built placeholder visual inside a `.project-card__media` block, marked with an HTML comment like:
-
-```html
-<!-- Replace this placeholder with assets/projects/deepfake-detection.png -->
-```
-
-Recommended screenshot filenames (drop them into `assets/projects/`):
-
-```
-assets/projects/deepfake-detection.png
-assets/projects/automation-dashboard.png
-assets/projects/web-scraper.png
-assets/projects/portfolio.png
-```
-
-To swap a placeholder for a real screenshot, replace the `.project-visual` div inside the relevant `.project-card__media` with an `<img>`:
-
-```html
-<div class="project-card__media">
-	<img src="assets/projects/deepfake-detection.png" alt="Deepfake Detection interface showing frame analysis and confidence score" loading="lazy">
-</div>
-```
-
-### Colors, type, spacing
-All design tokens live at the top of `css/style.css` under `:root`. The accent color, fonts, spacing scale, and radii are all CSS custom properties — change them once and they propagate everywhere:
-
-```css
---accent: #d9a441;      /* primary accent color */
---font-display: 'Space Grotesk', ...;  /* headings */
---font-body: 'Inter', ...;             /* body copy */
---font-mono: 'JetBrains Mono', ...;    /* labels, badges, technical UI */
-```
-
-To change fonts, also update the Google Fonts `<link>` in `index.html`'s `<head>`.
-
-### Project content
-Each project is a self-contained `<article class="project-card">` block in `index.html` under `#work`. Title, description, problem/approach copy, stack badges, and links are all plain markup — edit directly.
-
-### Skills
-Grouped under `#skills` in `index.html` as four `.skill-group` blocks (Languages, Development, Data & AI, Web & Automation). Add or remove `<li class="badge">` items as your toolkit changes.
+The layout and code are complete. Project case studies, contact details and timeline
+entries are still being written — placeholders in the markup are marked with `data-slot`,
+and the browser console prints how many remain.
 
 ## Deployment
 
-Since this is a static site with no build step, any static host works:
-
-- **GitHub Pages** — push to a repo, enable Pages on the `main` branch (or `/docs`), done.
-- **Netlify / Vercel** — drag-and-drop the folder, or connect the repo. No build command needed; publish directory is the project root.
-- **Any static host** (S3, Cloudflare Pages, etc.) — upload the files as-is.
-
-## Browser support
-
-Built against modern evergreen browsers (Chrome, Firefox, Safari, Edge — last two versions). Uses `IntersectionObserver`, CSS custom properties, and CSS Grid; all core content and navigation still work without JavaScript, with animations degrading gracefully.
+Pushes to `claude/lavya-portfolio-site-yz82bf` trigger
+[`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml), which publishes
+the repository root to GitHub Pages.

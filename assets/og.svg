@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Lavya — student engineer. From pointers to pixels.">
+  <rect width="1200" height="630" fill="#0B0B0C"/>
+
+  <g stroke="#EFEDE8" stroke-opacity="0.09">
+    <path d="M0 64.5h1200M0 128.5h1200M0 192.5h1200M0 256.5h1200M0 320.5h1200M0 384.5h1200M0 448.5h1200M0 512.5h1200M0 576.5h1200"/>
+    <path d="M96.5 0v630M288.5 0v630M480.5 0v630M672.5 0v630M864.5 0v630M1056.5 0v630"/>
+  </g>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="96" y="128" fill="#FF4A1C" font-size="20" font-weight="500" letter-spacing="3">00 / INDEX</text>
+
+    <text x="92" y="330" fill="#EFEDE8" font-size="132" font-weight="800" letter-spacing="-6">FROM POINTERS</text>
+    <text x="92" y="446" fill="none" stroke="#EFEDE8" stroke-width="2" font-size="132" font-weight="800" letter-spacing="-6">TO PIXELS</text>
+    <circle cx="712" cy="436" r="13" fill="#FF4A1C"/>
+
+    <text x="96" y="546" fill="#96938D" font-size="22" font-weight="400" letter-spacing="1.5">LAVYA &#183; STUDENT ENGINEER</text>
+  </g>
+
+  <rect x="96" y="576" width="1008" height="1" fill="#EFEDE8" fill-opacity="0.13"/>
+</svg>

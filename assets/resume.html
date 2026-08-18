@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavya — Résumé</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B0C'/%3E%3Cpath d='M9 7v18h13' stroke='%23EFEDE8' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='24.5' cy='23.5' r='2.6' fill='%23FF4A1C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* One page. Print to PDF with Ctrl/Cmd-P, margins "None", background graphics on. */
+  :root{
+    --ink:#111112; --dim:#5f5d59; --faint:#8b8884;
+    --rule:#dcd9d2; --signal:#E03C10; --paper:#FBFAF7;
+    --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    background:#e9e7e2; color:var(--ink); font-family:var(--sans);
+    font-size:10.2pt; line-height:1.5; padding:28px 16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    width:210mm; min-height:297mm; margin:0 auto; padding:16mm 15mm;
+    background:var(--paper); box-shadow:0 20px 50px -20px rgba(0,0,0,.35);
+  }
+  .mono{font-family:var(--mono);font-size:7.6pt;letter-spacing:.09em;text-transform:uppercase}
+  a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+  a:hover{color:var(--signal);border-color:var(--signal)}
+
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+         padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+  h1{font-size:30pt;font-weight:800;letter-spacing:-.035em;line-height:1}
+  h1 i{display:inline-block;width:.11em;height:.11em;margin-left:.04em;border-radius:50%;background:var(--signal);font-style:normal}
+  .role{color:var(--dim);margin-top:4px}
+  .contact{text-align:right;color:var(--dim);display:grid;gap:2px}
+
+  section{margin-top:16px}
+  h2{font-family:var(--mono);font-size:7.6pt;font-weight:500;letter-spacing:.13em;
+     text-transform:uppercase;color:var(--signal);padding-bottom:5px;
+     border-bottom:1px solid var(--rule);margin-bottom:9px}
+
+  .row{display:grid;grid-template-columns:30mm 1fr;gap:10px;padding:6px 0}
+  .row + .row{border-top:1px solid var(--rule)}
+  .when{color:var(--faint)}
+  h3{font-size:11pt;font-weight:700;letter-spacing:-.015em}
+  .meta{color:var(--faint);margin-bottom:3px}
+  ul{padding-left:14px;margin-top:3px;color:var(--dim)}
+  li{margin-top:2px}
+  p{color:var(--dim)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  .kv{display:grid;grid-template-columns:24mm 1fr;gap:8px;padding:3px 0}
+  .kv dt{color:var(--faint);font-family:var(--mono);font-size:7.6pt;letter-spacing:.09em;text-transform:uppercase}
+
+  .slot{color:#a8a49d}
+  footer{margin-top:18px;padding-top:8px;border-top:1px solid var(--rule);
+         display:flex;justify-content:space-between;color:var(--faint)}
+
+  @media print{
+    body{background:none;padding:0}
+    .sheet{box-shadow:none;width:auto;min-height:0;padding:12mm 13mm}
+    @page{size:A4;margin:0}
+  }
+  @media (max-width:760px){
+    .sheet{width:100%;padding:22px 18px}
+    header{flex-direction:column;align-items:flex-start}
+    .contact{text-align:left}
+    .row{grid-template-columns:1fr;gap:2px}
+    .grid2{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+
+  <header>
+    <div>
+      <h1>Lavya<i></i></h1>
+      <p class="role mono">Student Engineer — <span class="slot">[ your city, country ]</span></p>
+    </div>
+    <div class="contact mono">
+      <span><a href="mailto:you@example.com" class="slot">you@example.com</a></span>
+      <span><a href="https://github.com/your-username" class="slot">github.com/your-username</a></span>
+      <span><a href="https://linkedin.com/in/your-handle" class="slot">linkedin.com/in/your-handle</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p>
+      Student engineer working through the stack in both directions — C and C++ from the
+      bottom, interfaces and products from the top. Comfortable reading source before asking
+      for an answer. Looking for an internship or open-source team where being early is not
+      a reason to build things badly.
+    </p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="row">
+      <span class="when mono slot">[ 20XX–20XX ]</span>
+      <div>
+        <h3 class="slot">[ Degree / Programme ]</h3>
+        <p class="meta mono slot">[ Institution — City ]</p>
+        <p class="slot">[ Relevant coursework: data structures, algorithms, operating systems, databases… ]</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+
+    <div class="row">
+      <span class="when mono slot">[ 20XX ]</span>
+      <div>
+        <h3 class="slot">[ Project name ]</h3>
+        <p class="meta mono slot">[ Tech · Tech · Tech ]</p>
+        <ul>
+          <li class="slot">[ What it does, in one line. ]</li>
+          <li class="slot">[ One technical decision and the tradeoff you took. ]</li>
+          <li class="slot">[ Outcome, honestly stated. ]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="when mono slot">[ 20XX ]</span>
+      <div>
+        <h3 class="slot">[ Project name ]</h3>
+        <p class="meta mono slot">[ Tech · Tech ]</p>
+        <ul>
+          <li class="slot">[ … ]</li>
+          <li class="slot">[ … ]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="when mono slot">[ 20XX ]</span>
+      <div>
+        <h3 class="slot">[ Project name ]</h3>
+        <p class="meta mono slot">[ Tech · Tech ]</p>
+        <ul>
+          <li class="slot">[ … ]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical</h2>
+    <div class="grid2">
+      <dl class="kv"><dt>Languages</dt><dd>C, C++, Python, JavaScript, SQL</dd></dl>
+      <dl class="kv"><dt>Web</dt><dd>HTML, CSS, vanilla JS, responsive &amp; accessible UI</dd></dl>
+      <dl class="kv"><dt>Learning</dt><dd class="slot">[ what's next ]</dd></dl>
+      <dl class="kv"><dt>Tools</dt><dd class="slot">[ e.g. Git, VS Code, Linux ]</dd></dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other</h2>
+    <div class="row">
+      <span class="when mono slot">[ 20XX ]</span>
+      <div>
+        <h3 class="slot">[ Hackathon, course, certification, open-source patch, club ]</h3>
+        <p class="slot">[ One line. Delete this section if you have nothing real for it — an empty section is worse than a short résumé. ]</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>Lavya — Résumé</span>
+    <span class="slot">[ updated 20XX ]</span>
+  </footer>
+
+</main>
+</body>
+</html>
