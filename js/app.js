@@ -257,6 +257,7 @@
       { idx: '06', label: 'Exploring',               hint: 'Section', href: '#exploring' },
       { idx: '07', label: 'Contact',                 hint: 'Section', href: '#contact' },
       { idx: '→', label: 'GitHub',            hint: 'External', href: null, from: 'github.com/LavyaS' },
+      { idx: '→', label: 'LinkedIn',          hint: 'External', href: null, from: 'linkedin.com/in' },
       { idx: '→', label: 'Atlas — live site', hint: 'External', href: null, from: 'netlify.app' },
       { idx: '→', label: 'Email',             hint: 'External', href: null, from: 'mailto:' },
       { idx: '→', label: 'Résumé',            hint: 'External', href: null, from: 'resume' }
