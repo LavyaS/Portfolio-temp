@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Lavya Singh Chauhan — Student Engineer</title>
-<meta name="description" content="Lavya. Student engineer learning the stack in both directions — C and C++ from the bottom, interfaces and products from the top. Selected work, written up as case studies.">
+<meta name="description" content="Lavya Singh Chauhan. Computer Engineering student at MIT-WPU building across software, data and AI — C and Python underneath, interfaces on top. Selected work, written up as case studies.">
 <meta name="author" content="Lavya Singh Chauhan">
 <meta name="theme-color" content="#0B0B0C">
 <meta name="color-scheme" content="dark">
@@ -16,14 +16,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lavya Singh Chauhan">
 <meta property="og:title" content="Lavya Singh Chauhan — Student Engineer">
-<meta property="og:description" content="Learning the stack in both directions. Selected work, written up as case studies.">
+<meta property="og:description" content="Computer Engineering student at MIT-WPU building across software, data and AI. Selected work, written up as case studies.">
 <meta property="og:url" content="https://lavyas.github.io/Portfolio-temp/">
 <meta property="og:image" content="https://lavyas.github.io/Portfolio-temp/assets/og.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lavya Singh Chauhan — Student Engineer">
-<meta name="twitter:description" content="Learning the stack in both directions. Selected work, written up as case studies.">
+<meta name="twitter:description" content="Computer Engineering student at MIT-WPU building across software, data and AI. Selected work, written up as case studies.">
 <meta name="twitter:image" content="https://lavyas.github.io/Portfolio-temp/assets/og.svg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B0C'/%3E%3Cpath d='M9 7v18h13' stroke='%23EFEDE8' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='24.5' cy='23.5' r='2.6' fill='%23FF4A1C'/%3E%3C/svg%3E">
@@ -38,9 +38,10 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Lavya Singh Chauhan",
-  "jobTitle": "Student Software Engineer",
+  "jobTitle": "Computer Engineering Student",
   "url": "https://lavyas.github.io/Portfolio-temp/",
-  "knowsAbout": ["C", "C++", "Python", "JavaScript", "SQL", "HTML", "CSS"],
+  "alumniOf": "MIT World Peace University",
+  "knowsAbout": ["C", "C++", "Python", "JavaScript", "SQL", "HTML", "CSS", "Machine Learning"],
   "sameAs": ["https://github.com/LavyaS", "https://linkedin.com/in/your-handle"]
 }
 </script>
@@ -109,7 +110,7 @@
     <div class="hero__grid">
       <dl class="hero__spec mono" data-reveal>
         <div><dt>Name</dt><dd>Lavya Singh Chauhan</dd></div>
-        <div><dt>Role</dt><dd>Student engineer</dd></div>
+        <div><dt>Role</dt><dd>Computer Engineering student</dd></div>
         <!-- EDIT -->
         <div><dt>Based</dt><dd data-slot>[ your city, country ]</dd></div>
         <div><dt>Local</dt><dd><time data-clock>--:--</time></dd></div>
@@ -118,9 +119,9 @@
 
       <div class="hero__lead" data-reveal>
         <p>
-          I'm learning the stack in both directions — memory, syntax and structure from the
-          bottom; interfaces, systems and products from the top. The goal is to meet in the
-          middle and not need a translator.
+          I'm a Computer Engineering student at MIT-WPU, working the stack from both ends —
+          C and Python underneath, interfaces on top, data and machine learning in between.
+          The goal is range, not a single lane.
         </p>
         <p class="dim">
           Everything below is something I actually built and can explain line by line.
@@ -157,9 +158,9 @@
         <h3 class="project__h">
           <button class="project__toggle" type="button" aria-expanded="false" aria-controls="case-01">
             <span class="project__idx mono">01</span>
-            <span class="project__title" data-slot>[ Project name ]</span>
-            <span class="project__sub mono" data-slot>[ one line — what it does, in plain words ]</span>
-            <span class="project__year mono" data-slot>[ 20XX ]</span>
+            <span class="project__title">World Coffee Atlas</span>
+            <span class="project__sub mono">An interactive encyclopedia of coffee, mapped across the belt</span>
+            <span class="project__year mono">2026</span>
             <span class="project__chev" aria-hidden="true"></span>
           </button>
         </h3>
@@ -168,44 +169,44 @@
             <div class="case__body">
               <div class="field-block">
                 <h4 class="mono">The problem</h4>
-                <p data-slot>[ What was annoying, broken or missing? Two or three sentences. Name the actual situation — a real problem beats a grand mission statement. ]</p>
+                <p>Coffee reference material is scattered — origin data on trade sites, tasting notes on retailer pages, brewing steps on separate blogs. There was no single place to go from &ldquo;where is this from&rdquo; to &ldquo;how do I brew it.&rdquo;</p>
               </div>
               <div class="field-block">
                 <h4 class="mono">What it is</h4>
-                <p data-slot>[ Describe the thing itself. What does a person do with it, start to finish? ]</p>
+                <p>A single-page atlas: 47 regional coffee profiles across 25 producing countries, filterable by process, altitude and flavour family, with a world map, a variety encyclopedia, a processing lab, a brewing guide, and a quiz that recommends a coffee.</p>
               </div>
               <div class="field-block">
                 <h4 class="mono">Decisions worth defending</h4>
                 <ul>
-                  <li data-slot>[ A technical choice you made and the tradeoff you accepted — why this data structure, why no library, why you rewrote it. ]</li>
-                  <li data-slot>[ Another one. This section is what separates a project from an assignment. ]</li>
+                  <li>Dependency-free by design — markup, styles, data and a hash-based router all live in one <code>index.html</code>, so it deploys anywhere with zero build step.</li>
+                  <li>Wrote a small store layer shaped like a REST API even though the data is static, so a real backend could sit behind it later without touching the UI.</li>
                 </ul>
               </div>
               <div class="field-block">
                 <h4 class="mono">Where it fought back</h4>
-                <p data-slot>[ The bug or constraint that cost you the most time, and how you found it. Be specific — "off-by-one in the ring buffer" reads better than "debugging was hard". ]</p>
+                <p>The origins map needed real coastline geometry, not a placeholder grid — reprojecting Natural Earth land data by hand into the app&rsquo;s own coordinate system took longer than every other feature combined.</p>
               </div>
               <div class="field-block">
                 <h4 class="mono">Outcome</h4>
-                <p data-slot>[ Where it stands now, honestly. Shipped, running, abandoned, still open — all fine. What you would do differently is worth more than a fake metric. ]</p>
+                <p>Live. Every dataset is attributed to a real source (SCA/WCR, ICO, FAOSTAT), and the UI is explicit that sensory scores are editorial estimates, not claims about a specific farm or lot.</p>
               </div>
             </div>
 
             <aside class="case__spec">
               <dl class="mono">
-                <div><dt>Role</dt><dd data-slot>[ e.g. Solo build ]</dd></div>
-                <div><dt>Timeline</dt><dd data-slot>[ e.g. 3 weeks ]</dd></div>
-                <div><dt>Status</dt><dd data-slot>[ e.g. Live / Archived ]</dd></div>
+                <div><dt>Role</dt><dd>Solo build</dd></div>
+                <div><dt>Timeline</dt><dd>Aug 2026</dd></div>
+                <div><dt>Status</dt><dd>Live</dd></div>
               </dl>
               <div class="chips" role="list" aria-label="Technologies used">
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
+                <span role="listitem" class="chip">HTML</span>
+                <span role="listitem" class="chip">CSS</span>
+                <span role="listitem" class="chip">JavaScript</span>
+                <span role="listitem" class="chip">GSAP</span>
               </div>
               <div class="case__links">
-                <!-- EDIT: real hrefs -->
-                <a href="https://github.com/LavyaS" data-slot>Source &#8599;</a>
-                <a href="https://example.com/" data-slot>Live &#8599;</a>
+                <a href="https://github.com/LavyaS/world-coffee-atlas">Source &#8599;</a>
+                <a href="https://lustrous-peony-d2a063.netlify.app/">Live &#8599;</a>
               </div>
             </aside>
           </div>
@@ -217,75 +218,40 @@
         <h3 class="project__h">
           <button class="project__toggle" type="button" aria-expanded="false" aria-controls="case-02">
             <span class="project__idx mono">02</span>
-            <span class="project__title" data-slot>[ Project name ]</span>
-            <span class="project__sub mono" data-slot>[ one line — what it does, in plain words ]</span>
-            <span class="project__year mono" data-slot>[ 20XX ]</span>
+            <span class="project__title">Anti-Gravity Simulation</span>
+            <span class="project__sub mono">A physics sandbox stabilized in real time by a PID controller</span>
+            <span class="project__year mono">2026</span>
             <span class="project__chev" aria-hidden="true"></span>
           </button>
         </h3>
         <div class="case" id="case-02" data-open="false">
           <div class="case__inner">
             <div class="case__body">
-              <div class="field-block"><h4 class="mono">The problem</h4><p data-slot>[ … ]</p></div>
-              <div class="field-block"><h4 class="mono">What it is</h4><p data-slot>[ … ]</p></div>
+              <div class="field-block"><h4 class="mono">The problem</h4><p>Most physics demos either hard-code stability or skip control entirely. I wanted to watch a controller actually reason about forces — correcting, overcorrecting, damping — instead of just watching things fall.</p></div>
+              <div class="field-block"><h4 class="mono">What it is</h4><p>A Flask API drives a NumPy-based Newtonian physics engine; a canvas frontend renders it live. Objects can be handed to an AI stabilizer that uses a PID controller plus rule-based overrides to hold them at a target position, with every correction logged and explained.</p></div>
               <div class="field-block"><h4 class="mono">Decisions worth defending</h4>
-                <ul><li data-slot>[ … ]</li><li data-slot>[ … ]</li></ul>
+                <ul>
+                  <li>Split the physics engine, the stabilizer and the API into separate modules, so the control logic could be tuned independently of the simulation loop.</li>
+                  <li>Logged every AI decision by its proportional / integral / derivative contribution, not just the resulting force — so the stabilization is explainable, not a black box.</li>
+                </ul>
               </div>
-              <div class="field-block"><h4 class="mono">Where it fought back</h4><p data-slot>[ … ]</p></div>
-              <div class="field-block"><h4 class="mono">Outcome</h4><p data-slot>[ … ]</p></div>
+              <div class="field-block"><h4 class="mono">Where it fought back</h4><p>Tuning the PID gains: too aggressive and objects overshoot and oscillate, too soft and they never settle. Got it stable with rule-based overrides on top — emergency damping past a velocity threshold, a push back toward center near boundaries.</p></div>
+              <div class="field-block"><h4 class="mono">Outcome</h4><p>Working end-to-end — REST API, physics engine and stabilizer, documented with UML diagrams in the repo. Runs locally via Flask; not deployed.</p></div>
             </div>
             <aside class="case__spec">
               <dl class="mono">
-                <div><dt>Role</dt><dd data-slot>[ … ]</dd></div>
-                <div><dt>Timeline</dt><dd data-slot>[ … ]</dd></div>
-                <div><dt>Status</dt><dd data-slot>[ … ]</dd></div>
+                <div><dt>Role</dt><dd>Solo build</dd></div>
+                <div><dt>Timeline</dt><dd>Jun 2026</dd></div>
+                <div><dt>Status</dt><dd>Prototype</dd></div>
               </dl>
               <div class="chips" role="list" aria-label="Technologies used">
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
+                <span role="listitem" class="chip">Python</span>
+                <span role="listitem" class="chip">Flask</span>
+                <span role="listitem" class="chip">NumPy</span>
+                <span role="listitem" class="chip">JavaScript</span>
               </div>
               <div class="case__links">
-                <a href="https://github.com/LavyaS" data-slot>Source &#8599;</a>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 03 -->
-      <article class="project" data-peek="03">
-        <h3 class="project__h">
-          <button class="project__toggle" type="button" aria-expanded="false" aria-controls="case-03">
-            <span class="project__idx mono">03</span>
-            <span class="project__title" data-slot>[ Project name ]</span>
-            <span class="project__sub mono" data-slot>[ one line — what it does, in plain words ]</span>
-            <span class="project__year mono" data-slot>[ 20XX ]</span>
-            <span class="project__chev" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="case" id="case-03" data-open="false">
-          <div class="case__inner">
-            <div class="case__body">
-              <div class="field-block"><h4 class="mono">The problem</h4><p data-slot>[ … ]</p></div>
-              <div class="field-block"><h4 class="mono">What it is</h4><p data-slot>[ … ]</p></div>
-              <div class="field-block"><h4 class="mono">Decisions worth defending</h4>
-                <ul><li data-slot>[ … ]</li><li data-slot>[ … ]</li></ul>
-              </div>
-              <div class="field-block"><h4 class="mono">Where it fought back</h4><p data-slot>[ … ]</p></div>
-              <div class="field-block"><h4 class="mono">Outcome</h4><p data-slot>[ … ]</p></div>
-            </div>
-            <aside class="case__spec">
-              <dl class="mono">
-                <div><dt>Role</dt><dd data-slot>[ … ]</dd></div>
-                <div><dt>Timeline</dt><dd data-slot>[ … ]</dd></div>
-                <div><dt>Status</dt><dd data-slot>[ … ]</dd></div>
-              </dl>
-              <div class="chips" role="list" aria-label="Technologies used">
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
-                <span role="listitem" class="chip" data-slot>[ Tech ]</span>
-              </div>
-              <div class="case__links">
-                <a href="https://github.com/LavyaS" data-slot>Source &#8599;</a>
+                <a href="https://github.com/LavyaS/anti-gravity-simulation">Source &#8599;</a>
               </div>
             </aside>
           </div>
@@ -295,8 +261,7 @@
     </div>
 
     <p class="more mono" data-reveal>
-      <!-- EDIT -->
-      <a href="https://github.com/LavyaS" data-slot>Everything else lives on GitHub &#8599;</a>
+      <a href="https://github.com/LavyaS">Everything else lives on GitHub &#8599;</a>
     </p>
   </div>
 
@@ -319,8 +284,8 @@
       <div class="approach__prose" data-reveal>
         <p class="lede">
           I started with C because I wanted to know what a variable actually <em>is</em>.
-          I stayed with the web because it's the fastest way to put a working thing in
-          front of a person.
+          I'm at MIT-WPU for Computer Engineering, and I default to building over reading —
+          a data structure makes sense to me once I've implemented it, not before.
         </p>
         <p>
           Most of what I know arrived the same way: something didn't work, and I refused to
@@ -333,9 +298,9 @@
           A feature that only works on the happy path isn't finished, it's demoed.
         </p>
         <p>
-          The engineer I want to become is one who can move from a memory layout to an
-          interface without switching tools of thought. Low-level and high-level aren't two
-          careers. They're two ends of the same problem.
+          The engineer I want to become can move from a memory layout to a trained model to
+          a working interface without switching tools of thought. Systems, data and product
+          aren't different careers to me. They're different ends of the same problem.
         </p>
       </div>
 
@@ -343,9 +308,9 @@
         <h3 class="mono notes__h">Field notes</h3>
         <dl>
           <!-- EDIT: keep these current — they date fast -->
-          <div><dt class="mono">Learning</dt><dd data-slot>[ what you're actually studying right now ]</dd></div>
-          <div><dt class="mono">Building</dt><dd data-slot>[ what's open in your editor this week ]</dd></div>
-          <div><dt class="mono">Curious about</dt><dd data-slot>[ a topic you keep reading about ]</dd></div>
+          <div><dt class="mono">Learning</dt><dd>Data structures in C, and the fundamentals of machine learning — encoding, preprocessing, classification.</dd></div>
+          <div><dt class="mono">Building</dt><dd>World Coffee Atlas, and a set of data structures lab exercises in C.</dd></div>
+          <div><dt class="mono">Curious about</dt><dd>Where machine learning stops being a notebook exercise and starts being part of real software.</dd></div>
           <div><dt class="mono">Away from screens</dt><dd data-slot>[ something true and non-generic ]</dd></div>
         </dl>
       </aside>
@@ -377,6 +342,8 @@
           <ul>
             <li><button type="button" class="tech" data-note="My default for scripts, automation and anything where the idea matters more than the microseconds.">Python</button></li>
             <li><button type="button" class="tech" data-note="Schema, joins, and thinking about data as a shape before it is a screen.">SQL</button></li>
+            <li><button type="button" class="tech" data-note="The backend for a physics simulation — a small REST API in front of a NumPy engine.">Flask</button></li>
+            <li><button type="button" class="tech" data-note="Vector math for the physics engine behind the anti-gravity simulation.">NumPy</button></li>
           </ul>
         </section>
 
@@ -419,26 +386,25 @@
     </header>
 
     <ol class="log">
-      <!-- EDIT: one entry per real milestone. Delete the ones you don't need. -->
       <li class="log__row" data-reveal>
-        <span class="log__when mono" data-slot>[ 20XX ]</span>
+        <span class="log__when mono">2025</span>
         <div class="log__what">
-          <h3 data-slot>[ Milestone ]</h3>
-          <p data-slot>[ First program that did something you actually wanted. First project someone else used. A course that changed how you think. A hackathon. An open-source patch. Two sentences each. ]</p>
+          <h3>Machine learning coursework</h3>
+          <p>Started working through classical ML problems — encoding, preprocessing, classification — on datasets like Iris, in pandas and scikit-learn.</p>
         </div>
       </li>
       <li class="log__row" data-reveal>
-        <span class="log__when mono" data-slot>[ 20XX ]</span>
+        <span class="log__when mono">2026</span>
         <div class="log__what">
-          <h3 data-slot>[ Milestone ]</h3>
-          <p data-slot>[ … ]</p>
+          <h3>Anti-Gravity Simulation</h3>
+          <p>Built a Flask API around a NumPy physics engine, then a PID-controlled AI stabilizer that logs the reasoning behind every correction it makes.</p>
         </div>
       </li>
       <li class="log__row" data-reveal>
-        <span class="log__when mono" data-slot>[ 20XX ]</span>
+        <span class="log__when mono">2026</span>
         <div class="log__what">
-          <h3 data-slot>[ Milestone ]</h3>
-          <p data-slot>[ … ]</p>
+          <h3>World Coffee Atlas</h3>
+          <p>Shipped a single-file, dependency-free coffee encyclopedia — 47 regional profiles, an interactive origins map, a working content editor — deployed live.</p>
         </div>
       </li>
       <li class="log__row log__row--now" data-reveal>
@@ -471,18 +437,16 @@
       <em>slightly too hard for me</em>.
     </p>
 
-    <!-- EDIT: your real email, in both places -->
-    <a class="footer__mail" href="mailto:you@example.com" data-slot data-magnetic>
-      <span>you@example.com</span>
+    <a class="footer__mail" href="mailto:dlionc143@gmail.com" data-magnetic>
+      <span>dlionc143@gmail.com</span>
     </a>
 
     <div class="footer__grid">
       <nav class="footer__links" aria-label="Elsewhere">
-        <!-- EDIT -->
-        <a href="https://github.com/LavyaS" rel="me noopener" data-slot><span class="mono">01</span> GitHub <i aria-hidden="true">&#8599;</i></a>
+        <a href="https://github.com/LavyaS" rel="me noopener"><span class="mono">01</span> GitHub <i aria-hidden="true">&#8599;</i></a>
         <a href="https://linkedin.com/in/your-handle" rel="me noopener" data-slot><span class="mono">02</span> LinkedIn <i aria-hidden="true">&#8599;</i></a>
-        <a href="mailto:you@example.com" data-slot><span class="mono">03</span> Email <i aria-hidden="true">&#8599;</i></a>
-        <a href="assets/resume.html" data-slot><span class="mono">04</span> Résumé <i aria-hidden="true">&#8599;</i></a>
+        <a href="mailto:dlionc143@gmail.com"><span class="mono">03</span> Email <i aria-hidden="true">&#8599;</i></a>
+        <a href="assets/resume.html"><span class="mono">04</span> Résumé <i aria-hidden="true">&#8599;</i></a>
       </nav>
 
       <div class="colophon mono">

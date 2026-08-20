@@ -55,9 +55,13 @@ works — nothing depends on ES modules or `fetch`.
 
 ## Status
 
-The layout and code are complete. Project case studies, contact details and timeline
-entries are still being written — placeholders in the markup are marked with `data-slot`,
-and the browser console prints how many remain.
+Layout, content and the two project case studies are complete and accurate — both are
+real, verifiable repositories: [World Coffee Atlas](https://github.com/LavyaS/world-coffee-atlas)
+and [Anti-Gravity Simulation](https://github.com/LavyaS/anti-gravity-simulation). A handful
+of fields remain unfilled by design rather than oversight — location, LinkedIn, and the
+"next up" stack slots — because no fabricated placeholder is better than an honest gap.
+They're marked with `data-slot` in the markup, and the browser console prints how many
+remain.
 
 ## Deployment
 
