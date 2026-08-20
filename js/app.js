@@ -134,7 +134,7 @@
 
   var Reveal = {
     init: function () {
-      var items = $$('[data-reveal]');
+      var items = $$('[data-reveal], [data-mask]');
       if (!items.length) return;
 
       if (reduced() || !('IntersectionObserver' in window)) {
@@ -144,7 +144,7 @@
 
       // Stagger siblings that share a parent, so groups cascade.
       items.forEach(function (el) {
-        var siblings = $$('[data-reveal]', el.parentElement);
+        var siblings = $$('[data-reveal], [data-mask]', el.parentElement);
         el.style.setProperty('--i', Math.min(siblings.indexOf(el), 5));
       });
 
@@ -165,7 +165,7 @@
 
   var Field = {
     init: function () {
-      var hero = $('.hero');
+      var hero = $('.hero__pin') || $('.hero');
       var grid = $('.field__grid');
       if (!hero || !grid || !finePointer.matches || reduced()) return;
 
@@ -211,79 +211,6 @@
   };
 
 
-  /* ── Work: case-study disclosure ──────────────────────────── */
-
-  var Projects = {
-    init: function () {
-      $$('.project__toggle').forEach(function (btn) {
-        var region = document.getElementById(btn.getAttribute('aria-controls'));
-        if (!region) return;
-
-        btn.addEventListener('click', function () {
-          var open = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!open));
-          region.dataset.open = String(!open);
-        });
-      });
-    }
-  };
-
-
-  /* ── Work: cursor-following preview tile ──────────────────── */
-
-  var Peek = {
-    init: function () {
-      var zone = $('[data-peek-zone]');
-      var tile = $('[data-peek-tile]');
-      if (!zone || !tile || !finePointer.matches || reduced()) return;
-
-      var idx = $('.peek__idx', tile);
-      var targetX = 0, targetY = 0;   // where the pointer is
-      var curX = 0, curY = 0;         // where the tile has caught up to
-      var raf = null, on = false;
-
-      function loop() {
-        curX += (targetX - curX) * 0.16;
-        curY += (targetY - curY) * 0.16;
-        tile.style.transform = 'translate3d(' + curX + 'px,' + curY + 'px,0)';
-
-        if (Math.abs(targetX - curX) > 0.4 || Math.abs(targetY - curY) > 0.4 || on) {
-          raf = requestAnimationFrame(loop);
-        } else {
-          raf = null;
-        }
-      }
-
-      zone.addEventListener('pointermove', function (e) {
-        var project = e.target.closest ? e.target.closest('.project') : null;
-
-        // Never cover an open case study — the tile is a hint, not an obstacle.
-        var expanded = project && $('.project__toggle', project).getAttribute('aria-expanded') === 'true';
-
-        if (project && !expanded) {
-          // Snap on entry so the tile does not fly in from the last position.
-          if (!on) { curX = e.clientX + 22; curY = e.clientY + 22; }
-          on = true;
-          tile.dataset.on = 'true';
-          if (idx) idx.textContent = project.dataset.peek || '';
-        } else {
-          on = false;
-          tile.dataset.on = 'false';
-        }
-
-        targetX = Math.min(e.clientX + 22, window.innerWidth - 190);
-        targetY = Math.min(e.clientY + 22, window.innerHeight - 130);
-        if (!raf) raf = requestAnimationFrame(loop);
-      });
-
-      zone.addEventListener('pointerleave', function () {
-        on = false;
-        tile.dataset.on = 'false';
-      });
-    }
-  };
-
-
   /* ── Stack: technology notes ──────────────────────────────── */
 
   var Stack = {
@@ -321,16 +248,18 @@
 
   var Palette = {
     items: [
-      { idx: '00', label: 'Index',      hint: 'Section', href: '#top' },
-      { idx: '01', label: 'Work',       hint: 'Section', href: '#work' },
-      { idx: '02', label: 'Approach',   hint: 'Section', href: '#approach' },
-      { idx: '03', label: 'Stack',      hint: 'Section', href: '#stack' },
-      { idx: '04', label: 'Trajectory', hint: 'Section', href: '#trajectory' },
-      { idx: '05', label: 'Contact',    hint: 'Section', href: '#contact' },
-      { idx: '→', label: 'GitHub',   hint: 'External', href: null, from: 'github.com' },
-      { idx: '→', label: 'LinkedIn', hint: 'External', href: null, from: 'linkedin.com' },
-      { idx: '→', label: 'Email',    hint: 'External', href: null, from: 'mailto:' },
-      { idx: '→', label: 'Résumé', hint: 'External', href: null, from: 'resume' }
+      { idx: '00', label: 'Index',                   hint: 'Section', href: '#top' },
+      { idx: '01', label: 'Identity',                hint: 'Section', href: '#identity' },
+      { idx: '02', label: 'Work',                    hint: 'Section', href: '#work' },
+      { idx: '03', label: 'World Coffee Atlas',      hint: 'Case study', href: '#atlas' },
+      { idx: '04', label: 'Anti-Gravity Simulation', hint: 'Case study', href: '#simulation' },
+      { idx: '05', label: 'Stack',                   hint: 'Section', href: '#stack' },
+      { idx: '06', label: 'Exploring',               hint: 'Section', href: '#exploring' },
+      { idx: '07', label: 'Contact',                 hint: 'Section', href: '#contact' },
+      { idx: '→', label: 'GitHub',            hint: 'External', href: null, from: 'github.com/LavyaS' },
+      { idx: '→', label: 'Atlas — live site', hint: 'External', href: null, from: 'netlify.app' },
+      { idx: '→', label: 'Email',             hint: 'External', href: null, from: 'mailto:' },
+      { idx: '→', label: 'Résumé',            hint: 'External', href: null, from: 'resume' }
     ],
 
     init: function () {
@@ -523,7 +452,7 @@
   /* ── Boot ─────────────────────────────────────────────────── */
 
   function boot() {
-    [Chrome, Clock, Scroll, Reveal, Field, Magnetic, Projects, Peek, Stack, Palette, GridReveal, Lint]
+    [Chrome, Clock, Scroll, Reveal, Field, Magnetic, Stack, Palette, GridReveal, Lint]
       .forEach(function (mod) {
         try { mod.init(); }
         catch (err) { if (console && console.warn) console.warn('[module failed]', err); }

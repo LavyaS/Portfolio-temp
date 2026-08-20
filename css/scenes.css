@@ -1,0 +1,738 @@
+/* ═══════════════════════════════════════════════════════════════
+   LAVYA — scenes.css
+   Scroll choreography, project takeovers, cursor.
+
+   Loaded after main.css. Extends the same token system — no new
+   colours, no new typefaces. Motion only.
+
+   Every scene element carries --p (0 → 1), written once per frame
+   by js/scenes.js. CSS reads it; JS never touches layout properties.
+
+   01  Scene primitives
+   02  Hero choreography
+   03  Text reveals
+   04  Navigation transformation
+   05  Work manifest
+   06  Takeover shell
+   07  Atlas — coffee belt
+   08  Simulation — canvas + telemetry
+   09  Exploring
+   10  Custom cursor
+   11  Responsive
+   12  Reduced motion / forced colors / print
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ── 01  SCENE PRIMITIVES ────────────────────────────────────── */
+
+[data-scene] { --p: 0; }
+
+/* A scene is a scroll runway; its child sticks for the duration. */
+.tk__stagewrap {
+  position: relative;
+  height: 220vh;
+}
+
+.tk__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+
+/* ── 02  HERO CHOREOGRAPHY ───────────────────────────────────── */
+
+/* Override main.css: the hero becomes a runway with a pinned frame. */
+.hero {
+  height: 168vh;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  overflow: visible;      /* sticky child needs a non-clipping ancestor */
+}
+
+.hero__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: calc(var(--topbar-h) + 24px);
+  padding-bottom: 72px;
+}
+
+.hero__wrap { will-change: transform; }
+
+/* Layers move at different rates — that difference is the parallax. */
+.hero__eyebrow {
+  transform: translate3d(0, calc(var(--p) * -3vh), 0);
+  opacity: calc(1 - var(--p) * 2.4);
+}
+
+.hero__title {
+  transform: translate3d(0, calc(var(--p) * -5vh), 0) scale(calc(1 - var(--p) * 0.09));
+  transform-origin: 0% 50%;
+  opacity: calc(1 - var(--p) * 1.15);
+}
+
+.hero__grid {
+  transform: translate3d(0, calc(var(--p) * -11vh), 0);
+  opacity: calc(1 - var(--p) * 1.9);
+}
+
+.hero__spec  { transform: translate3d(0, calc(var(--p) * -3.5vh), 0); }
+.hero__lead  { transform: translate3d(0, calc(var(--p) * -6vh), 0); }
+
+/* The drafting field deepens as you descend. */
+.hero .field__grid {
+  transform: scale(calc(1 + var(--p) * 0.22));
+  transform-origin: 50% 30%;
+}
+
+/* Entrance: each hero line rises out of its own mask. */
+.hero__line { overflow: hidden; }
+.hero__line > span {
+  display: block;
+  transform: translate3d(0, 100%, 0);
+  animation: line-in 1s var(--ease) forwards;
+}
+.hero__line:nth-child(1) > span { animation-delay: 0.10s; }
+.hero__line:nth-child(2) > span { animation-delay: 0.19s; }
+.hero__line:nth-child(3) > span { animation-delay: 0.28s; }
+@keyframes line-in { to { transform: translate3d(0, 0, 0); } }
+
+.hero__eyebrow,
+.hero__grid { animation: fade-up 0.9s var(--ease) 0.42s backwards; }
+@keyframes fade-up {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+}
+
+.hero__cue {
+  position: absolute;
+  left: 50%;
+  bottom: 58px;
+  translate: -50% 0;
+  color: var(--paper-faint);
+  letter-spacing: 0.14em;
+  opacity: calc(1 - var(--p) * 3.5);
+  animation: fade-up 0.9s var(--ease) 0.9s backwards;
+}
+.hero__cue span { position: relative; }
+.hero__cue span::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: calc(100% + 8px);
+  width: 1px; height: 22px;
+  background: linear-gradient(var(--signal), transparent);
+  animation: cue 2.2s var(--ease-io) infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+
+/* ── 03  TEXT REVEALS ────────────────────────────────────────── */
+
+/* Mask reveal: the line wipes in rather than fading. */
+[data-mask] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s var(--ease);
+}
+[data-mask].is-in { clip-path: inset(0 0 0 0); }
+
+
+/* ── 04  NAVIGATION TRANSFORMATION ───────────────────────────── */
+
+/* At the top the mark is the full name; once scrolled it condenses
+   and the section links take its place. */
+.mark__full {
+  display: inline-block;
+  max-width: 12em;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  transition: max-width 0.5s var(--ease), opacity 0.3s var(--ease);
+}
+.topbar[data-stuck="true"] .mark__full { max-width: 0; opacity: 0; }
+
+.topnav a {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 6px, 0);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease),
+              color var(--dur-fast) var(--ease);
+}
+.topbar[data-stuck="true"] .topnav a {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.topbar[data-stuck="true"] .topnav a:nth-child(2) { transition-delay: 0.04s; }
+.topbar[data-stuck="true"] .topnav a:nth-child(3) { transition-delay: 0.08s; }
+.topbar[data-stuck="true"] .topnav a:nth-child(4) { transition-delay: 0.12s; }
+
+/* Reclaim the viewport when reading downward. Never hides while a
+   focus lives inside the bar, and never on the hero. */
+.topbar {
+  transform: translate3d(0, 0, 0);
+  transition: background var(--dur-fast) linear,
+              border-color var(--dur-fast) linear,
+              transform 0.42s var(--ease);
+}
+.topbar[data-hide="true"] { transform: translate3d(0, -102%, 0); }
+.topbar:focus-within { transform: translate3d(0, 0, 0) !important; }
+
+
+/* ── 05  WORK MANIFEST ───────────────────────────────────────── */
+
+.manifest { border-top: 1px solid var(--rule); }
+
+.manifest__row { border-bottom: 1px solid var(--rule); position: relative; }
+
+.manifest__row::before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 50vw); right: calc(50% - 50vw);
+  top: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--signal-soft), transparent 58%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.42s var(--ease);
+}
+.manifest__row:hover::before,
+.manifest__row:focus-within::before { opacity: 1; }
+
+.manifest__row a {
+  display: grid;
+  grid-template-columns: var(--col-idx) minmax(0, 1.45fr) minmax(0, 0.95fr) 5rem 7rem;
+  align-items: baseline;
+  column-gap: var(--col-gap);
+  padding-block: clamp(26px, 3.6vw, 46px);
+}
+
+.manifest__idx {
+  color: var(--paper-faint);
+  transition: color var(--dur-fast) var(--ease);
+}
+.manifest__row:hover .manifest__idx { color: var(--signal); }
+
+.manifest__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.55rem);
+  letter-spacing: -0.038em;
+  line-height: 1;
+  transition: transform 0.42s var(--ease);
+}
+.manifest__row:hover .manifest__name { transform: translate3d(10px, 0, 0); }
+
+.manifest__sub  { color: var(--paper-dim); text-transform: none; letter-spacing: 0.02em; font-size: 0.8rem; }
+.manifest__meta { color: var(--paper-faint); }
+.manifest__year { color: var(--paper-faint); }
+
+.manifest__go {
+  justify-self: end;
+  color: var(--paper-faint);
+  opacity: 1;
+  transform: translate3d(-6px, 0, 0);
+  transition: opacity 0.36s var(--ease), transform 0.36s var(--ease),
+              color 0.36s var(--ease);
+  white-space: nowrap;
+}
+.manifest__row:hover .manifest__go,
+.manifest__row:focus-within .manifest__go { color: var(--signal); transform: none; }
+
+
+/* ── 06  TAKEOVER SHELL ──────────────────────────────────────── */
+
+.takeover {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  background: var(--ink);
+}
+
+/* Oversized project name, driven down to a watermark as you scroll. */
+.tk__title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.84;
+  letter-spacing: -0.05em;
+  font-size: clamp(2.6rem, 11vw, 9.5rem);
+  transform: scale(calc(1 - var(--p) * 0.42)) translate3d(0, calc(var(--p) * -26vh), 0);
+  opacity: calc(1 - var(--p) * 2.35);
+  will-change: transform;
+}
+.tk__word { display: block; overflow: hidden; }
+.tk__word > span { display: block; }
+.tk__word--hollow {
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--paper);
+}
+
+/* The body sheet rises over the pinned stage. */
+.tk__body {
+  position: relative;
+  z-index: 3;
+  background: var(--ink);
+  border-top: 1px solid var(--rule-hard);
+  padding-block: clamp(72px, 10vh, 132px) var(--section);
+  box-shadow: 0 -40px 80px -30px rgba(0, 0, 0, 0.85);
+}
+
+.tk__head {
+  display: grid;
+  grid-template-columns: var(--col-idx) minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  margin-bottom: clamp(44px, 6vw, 84px);
+}
+.tk__head .idx { padding-top: 0.85rem; border-top: 1px solid var(--signal-line); }
+.tk__head h2 {
+  grid-column: 2;
+  font-size: var(--fs-h2);
+  letter-spacing: -0.042em;
+  padding-top: 0.62rem;
+  border-top: 1px solid var(--rule-hard);
+}
+.tk__lede {
+  grid-column: 2;
+  margin-top: 1.15rem;
+  max-width: 44ch;
+  font-size: var(--fs-lede);
+  line-height: 1.5;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+.tk__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(26px, 3.4vw, 54px);
+  margin-left: calc(var(--col-idx) + var(--col-gap));
+  max-width: 82ch;
+}
+.tk__fields .field-block h3 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--signal);
+  padding-bottom: 0.55rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+.tk__fields code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  color: var(--paper);
+}
+
+.tk__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(22px, 3vw, 52px);
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: calc(var(--col-idx) + var(--col-gap));
+  margin-top: clamp(40px, 5vw, 72px);
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.tk__spec { display: grid; gap: 7px; }
+.tk__spec > div { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 10px; }
+.tk__spec dt { color: var(--paper-faint); }
+.tk__spec dd { color: var(--paper-dim); text-transform: none; letter-spacing: 0.03em; }
+.tk__links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+
+/* ── 07  ATLAS — COFFEE BELT ─────────────────────────────────── */
+
+.belt {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 50%;
+  z-index: 2;
+  margin: 0;
+  opacity: 0;
+  transform: translate3d(0, calc(-50% + 26px), 0);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.belt.is-live { opacity: 1; transform: translate3d(0, -50%, 0); }
+
+.belt__cap {
+  display: flex;
+  justify-content: space-between;
+  color: var(--paper-faint);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 14px;
+}
+
+.belt__svg { width: 100%; height: auto; overflow: visible; }
+
+.belt__svg .belt-line { stroke: var(--rule); stroke-width: 1; fill: none; }
+.belt__svg .belt-trop { stroke: var(--signal-line); stroke-width: 1; stroke-dasharray: 3 5; fill: none; }
+.belt__svg .belt-lbl  { fill: var(--paper-faint); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
+
+.belt__svg circle {
+  fill: var(--signal);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+  transition-delay: calc(var(--i) * 22ms);
+}
+.belt.is-live .belt__svg circle { opacity: 0.85; transform: scale(1); }
+
+.belt__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px clamp(20px, 4vw, 54px);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  color: var(--paper-faint);
+}
+.belt__stats b {
+  font-weight: 500;
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+  margin-right: 6px;
+}
+
+
+/* ── 08  SIMULATION — CANVAS + TELEMETRY ─────────────────────── */
+
+.tk__stage--sim { background: var(--ink-sunk); }
+
+.sim__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tk__title--sim {
+  mix-blend-mode: difference;   /* type stays legible over the field */
+  pointer-events: none;
+}
+
+.sim__hud {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--topbar-h) + 22px);
+  right: var(--gutter);
+  width: 15rem;
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  background: rgba(11, 11, 12, 0.72);
+  color: var(--paper-dim);
+  opacity: calc(0.15 + var(--p) * 1.6);
+}
+.sim__hud-h {
+  color: var(--signal);
+  letter-spacing: 0.11em;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.sim__hud-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 2px;
+}
+.sim__hud-row b {
+  font-weight: 500;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+.sim__note {
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  bottom: 8vh;
+  max-width: 34rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  color: var(--paper-dim);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+}
+
+.sim__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--rule-hard);
+  border-radius: 2px;
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.sim__toggle:hover { border-color: var(--signal); color: var(--signal); }
+.sim__toggle-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  transition: background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  box-shadow: 0 0 0 3px var(--signal-soft);
+}
+.sim__toggle[aria-pressed="false"] .sim__toggle-dot {
+  background: var(--paper-faint);
+  box-shadow: none;
+}
+
+
+/* ── 09  EXPLORING ───────────────────────────────────────────── */
+
+.explore { display: grid; }
+
+.explore__row {
+  display: grid;
+  grid-template-columns: var(--col-idx) minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  padding-block: clamp(22px, 3vw, 34px);
+  border-top: 1px solid var(--rule);
+  position: relative;
+}
+.explore__row:last-child { border-bottom: 1px solid var(--rule); }
+.explore__idx { color: var(--paper-faint); padding-top: 0.5rem; }
+.explore__row > div { max-width: 62ch; }
+.explore__row h3 {
+  font-size: clamp(1.2rem, 1.9vw, 1.62rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.55rem;
+}
+.explore__row p { color: var(--paper-dim); text-wrap: pretty; }
+
+.explore__row--now .explore__idx { color: var(--signal); }
+.explore__row--now::before {
+  content: "";
+  position: absolute;
+  left: 0; top: -1px;
+  width: var(--col-idx); height: 1px;
+  background: var(--signal);
+}
+
+
+/* ── 10  CUSTOM CURSOR ───────────────────────────────────────── */
+
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 300;
+  pointer-events: none;
+  display: none;
+  align-items: center;
+  gap: 9px;
+  will-change: transform;
+  opacity: 0;                       /* nothing to show until the pointer moves */
+  transition: opacity 0.2s linear;
+}
+body.has-cursor .cursor { display: flex; }
+.cursor[data-ready="true"] { opacity: 1; }
+body.has-cursor,
+body.has-cursor a,
+body.has-cursor button { cursor: none; }
+/* Text entry must keep a real caret. */
+body.has-cursor input,
+body.has-cursor textarea { cursor: auto; }
+
+.cursor__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  transition: width 0.28s var(--ease), height 0.28s var(--ease),
+              background 0.28s var(--ease);
+}
+.cursor[data-state="link"] .cursor__dot { width: 11px; height: 11px; background: var(--signal); }
+.cursor[data-state="label"] .cursor__dot { width: 5px; height: 5px; background: var(--signal); }
+
+.cursor__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--signal);
+  padding: 4px 9px;
+  border-radius: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate3d(-6px, 0, 0) scale(0.92);
+  transform-origin: 0% 50%;
+  transition: opacity 0.24s var(--ease), transform 0.24s var(--ease);
+}
+.cursor[data-state="label"] .cursor__label { opacity: 1; transform: none; }
+
+
+/* ── 11  RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 1080px) {
+  .tk__fields { grid-template-columns: minmax(0, 1fr); }
+  .sim__hud { width: 13rem; }
+}
+
+@media (max-width: 900px) {
+  .manifest__row a {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    row-gap: 6px;
+  }
+  .manifest__idx  { grid-row: 1 / span 4; }
+  .manifest__name { grid-column: 2; }
+  .manifest__sub  { grid-column: 2; }
+  .manifest__meta { grid-column: 2; }
+  .manifest__year { grid-column: 2; }
+  .manifest__go   { grid-column: 2; justify-self: start; opacity: 1; transform: none; }
+  .manifest__row:hover .manifest__name { transform: none; }
+
+  .sim__note { max-width: none; right: var(--gutter); bottom: 4vh; }
+}
+
+/* Coarse pointers and short viewports: stop pinning. Long pinned
+   runways on a phone read as a broken page, not as choreography. */
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  .hero { height: auto; }
+  .hero__pin {
+    position: static;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+  .hero__eyebrow,
+  .hero__title,
+  .hero__grid,
+  .hero__spec,
+  .hero__lead { transform: none; opacity: 1; }
+  .hero .field__grid { transform: none; }
+  .hero__cue { opacity: 1; }
+
+  .tk__stagewrap { height: auto; }
+  .tk__stage {
+    position: static;
+    height: auto;
+    min-height: 0;
+    padding-block: clamp(56px, 10vh, 88px);
+  }
+  .tk__title { transform: none; opacity: 1; }
+
+  .belt {
+    position: static;
+    transform: none;
+    margin: clamp(32px, 7vh, 56px) var(--gutter) 0;
+  }
+  .belt.is-live { transform: none; }
+  .belt__svg .belt-lbl { display: none; }   /* ~4px on screen — unreadable */
+  .belt__svg circle { r: 7; }
+  .sim__hud,
+  .sim__note { position: static; width: auto; opacity: 1; }
+  .tk__stage--sim { display: block; }
+  .sim__canvas { position: absolute; }
+  .tk__title--sim { position: relative; }
+
+  .tk__body { box-shadow: none; }
+  .tk__fields,
+  .tk__foot { margin-left: 0; }
+}
+
+@media (max-width: 720px) {
+  .tk__head { grid-template-columns: minmax(0, 1fr); }
+  .tk__head .idx { border-top: 0; padding-top: 0; margin-bottom: 12px; }
+  .tk__head h2,
+  .tk__lede { grid-column: 1; }
+  .explore__row { grid-template-columns: minmax(0, 1fr); }
+  .explore__idx { padding-top: 0; margin-bottom: 10px; display: block; }
+  .explore__row--now::before { width: 3rem; }
+  .tk__foot { flex-direction: column; }
+}
+
+
+/* ── 12  REDUCED MOTION / FORCED COLORS / PRINT ──────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Unpin everything and neutralise every progress-driven transform.
+     The page becomes a well-set document, not a broken animation. */
+  .hero { height: auto; }
+  .hero__pin {
+    position: static;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+  .hero__eyebrow,
+  .hero__title,
+  .hero__grid,
+  .hero__spec,
+  .hero__lead,
+  .tk__title { transform: none !important; opacity: 1 !important; }
+  .hero .field__grid { transform: none !important; }
+
+  .hero__line > span { transform: none; animation: none; }
+  .hero__eyebrow,
+  .hero__grid,
+  .hero__cue { animation: none; }
+  .hero__cue span::after { animation: none; opacity: 0.6; }
+
+  .tk__stagewrap { height: auto; }
+  .tk__stage { position: static; height: auto; min-height: 70svh; padding-block: 72px; }
+
+  .belt { position: static; opacity: 1; transform: none; margin-top: 48px; }
+  .belt__svg circle { opacity: 0.85; transform: none; transition: none; }
+
+  .sim__hud, .sim__note { position: static; width: auto; opacity: 1; }
+  .sim__canvas { position: absolute; }
+
+  [data-mask] { clip-path: none; transition: none; }
+
+  .topbar[data-hide="true"] { transform: none; }
+  .topnav a { opacity: 1; pointer-events: auto; transform: none; }
+  .mark__full { max-width: 12em; opacity: 1; }
+
+  .manifest__go { opacity: 1; transform: none; }
+  .manifest__row:hover .manifest__name { transform: none; }
+
+  .cursor { display: none !important; }
+  body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: auto; }
+}
+
+@media (forced-colors: active) {
+  .tk__word--hollow { -webkit-text-stroke: 0; color: CanvasText; }
+  .cursor, .sim__canvas, .belt { display: none; }
+  .sim__hud, .sim__toggle { border: 1px solid ButtonBorder; }
+}
+
+@media print {
+  .cursor, .sim__canvas, .sim__hud, .sim__note, .belt, .hero__cue { display: none !important; }
+  .hero, .tk__stagewrap { height: auto !important; }
+  .hero__pin, .tk__stage { position: static !important; height: auto !important; }
+  .tk__title { transform: none !important; opacity: 1 !important; color: #000 !important; }
+  .tk__word--hollow { -webkit-text-stroke: 0; color: #000; }
+  .tk__body { box-shadow: none; }
+}

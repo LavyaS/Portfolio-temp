@@ -4,26 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Lavya Singh Chauhan — Student Engineer</title>
-<meta name="description" content="Lavya Singh Chauhan. Computer Engineering student at MIT-WPU building across software, data and AI — C and Python underneath, interfaces on top. Selected work, written up as case studies.">
+<title>Lavya Singh Chauhan — Computer Engineering Student</title>
+<meta name="description" content="Lavya Singh Chauhan. Computer Engineering student at MIT-WPU building across memory, models and interfaces — C and Python underneath, machine learning in between, the web on top. Selected work, written up as case studies.">
 <meta name="author" content="Lavya Singh Chauhan">
 <meta name="theme-color" content="#0B0B0C">
 <meta name="color-scheme" content="dark">
 
-<!-- EDIT: replace with your real deployed URL -->
 <link rel="canonical" href="https://lavyas.github.io/Portfolio-temp/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lavya Singh Chauhan">
-<meta property="og:title" content="Lavya Singh Chauhan — Student Engineer">
-<meta property="og:description" content="Computer Engineering student at MIT-WPU building across software, data and AI. Selected work, written up as case studies.">
+<meta property="og:title" content="Lavya Singh Chauhan — Computer Engineering Student">
+<meta property="og:description" content="Computer Engineering student at MIT-WPU building across memory, models and interfaces. Selected work, written up as case studies.">
 <meta property="og:url" content="https://lavyas.github.io/Portfolio-temp/">
 <meta property="og:image" content="https://lavyas.github.io/Portfolio-temp/assets/og.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lavya Singh Chauhan — Student Engineer">
-<meta name="twitter:description" content="Computer Engineering student at MIT-WPU building across software, data and AI. Selected work, written up as case studies.">
+<meta name="twitter:title" content="Lavya Singh Chauhan — Computer Engineering Student">
+<meta name="twitter:description" content="Computer Engineering student at MIT-WPU building across memory, models and interfaces.">
 <meta name="twitter:image" content="https://lavyas.github.io/Portfolio-temp/assets/og.svg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B0C'/%3E%3Cpath d='M9 7v18h13' stroke='%23EFEDE8' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='24.5' cy='23.5' r='2.6' fill='%23FF4A1C'/%3E%3C/svg%3E">
@@ -32,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&display=swap">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/scenes.css">
 
 <script type="application/ld+json">
 {
@@ -41,8 +41,9 @@
   "jobTitle": "Computer Engineering Student",
   "url": "https://lavyas.github.io/Portfolio-temp/",
   "alumniOf": "MIT World Peace University",
-  "knowsAbout": ["C", "C++", "Python", "JavaScript", "SQL", "HTML", "CSS", "Machine Learning"],
-  "sameAs": ["https://github.com/LavyaS", "https://linkedin.com/in/your-handle"]
+  "email": "mailto:dlionc143@gmail.com",
+  "knowsAbout": ["C", "C++", "Python", "JavaScript", "SQL", "HTML", "CSS", "Machine Learning", "Data Structures"],
+  "sameAs": ["https://github.com/LavyaS"]
 }
 </script>
 </head>
@@ -55,17 +56,23 @@
 <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <div class="progress" aria-hidden="true"><span data-progress></span></div>
 
+<!-- Custom cursor (desktop, fine pointer, motion-allowed only) -->
+<div class="cursor" data-cursor aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__label" data-cursor-label></span>
+</div>
+
 <header class="topbar" data-topbar>
-  <a class="mark" href="#top" aria-label="Lavya — back to top">
-    <span class="mark__name">Lavya</span>
+  <a class="mark" href="#top" aria-label="Lavya Singh Chauhan — back to top">
+    <span class="mark__name">Lavya</span><span class="mark__full">&nbsp;Singh Chauhan</span>
     <span class="mark__dot" aria-hidden="true"></span>
   </a>
 
   <nav class="topnav" aria-label="Sections">
-    <a href="#work" data-navlink="work">Work</a>
-    <a href="#approach" data-navlink="approach">Approach</a>
-    <a href="#stack" data-navlink="stack">Stack</a>
-    <a href="#trajectory" data-navlink="trajectory">Trajectory</a>
+    <a href="#identity"   data-navlink="identity">Identity</a>
+    <a href="#work"       data-navlink="work">Work</a>
+    <a href="#stack"      data-navlink="stack">Stack</a>
+    <a href="#exploring"  data-navlink="exploring">Exploring</a>
   </nav>
 
   <div class="topbar__end">
@@ -81,223 +88,92 @@
 <nav class="rail" aria-label="Section index">
   <ol>
     <li><a href="#top"        data-raillink="top"><b>00</b><span>Index</span></a></li>
-    <li><a href="#work"       data-raillink="work"><b>01</b><span>Work</span></a></li>
-    <li><a href="#approach"   data-raillink="approach"><b>02</b><span>Approach</span></a></li>
-    <li><a href="#stack"      data-raillink="stack"><b>03</b><span>Stack</span></a></li>
-    <li><a href="#trajectory" data-raillink="trajectory"><b>04</b><span>Trajectory</span></a></li>
-    <li><a href="#contact"    data-raillink="contact"><b>05</b><span>Contact</span></a></li>
+    <li><a href="#identity"   data-raillink="identity"><b>01</b><span>Identity</span></a></li>
+    <li><a href="#work"       data-raillink="work"><b>02</b><span>Work</span></a></li>
+    <li><a href="#atlas"      data-raillink="atlas"><b>03</b><span>Atlas</span></a></li>
+    <li><a href="#simulation" data-raillink="simulation"><b>04</b><span>Simulation</span></a></li>
+    <li><a href="#stack"      data-raillink="stack"><b>05</b><span>Stack</span></a></li>
+    <li><a href="#exploring"  data-raillink="exploring"><b>06</b><span>Exploring</span></a></li>
+    <li><a href="#contact"    data-raillink="contact"><b>07</b><span>Contact</span></a></li>
   </ol>
 </nav>
 
 <main>
 
 <!-- 00 INDEX ============================================ -->
-<section class="hero" id="top" data-section="top">
-  <div class="field" aria-hidden="true"><div class="field__grid"></div></div>
+<section class="hero" id="top" data-section="top" data-scene="hero">
+  <div class="hero__pin">
+    <div class="field" aria-hidden="true"><div class="field__grid"></div></div>
 
-  <div class="wrap hero__wrap">
-    <p class="hero__eyebrow mono" data-reveal>
-      <span class="idx">00</span>
-      <span class="rule-h" aria-hidden="true"></span>
-      <span>Index</span>
-    </p>
+    <div class="wrap hero__wrap">
+      <p class="hero__eyebrow mono">
+        <span class="idx">00</span>
+        <span class="rule-h" aria-hidden="true"></span>
+        <span>Lavya Singh Chauhan</span>
+      </p>
 
-    <h1 class="hero__title" data-reveal>
-      <span class="hero__line">From pointers</span>
-      <span class="hero__line hero__line--hollow">to pixels<i class="stop" aria-hidden="true"></i></span>
-    </h1>
+      <h1 class="hero__title">
+        <span class="hero__line"><span>Memory,</span></span>
+        <span class="hero__line"><span>models,</span></span>
+        <span class="hero__line hero__line--hollow"><span>interfaces<i class="stop" aria-hidden="true"></i></span></span>
+      </h1>
 
-    <div class="hero__grid">
-      <dl class="hero__spec mono" data-reveal>
-        <div><dt>Name</dt><dd>Lavya Singh Chauhan</dd></div>
-        <div><dt>Role</dt><dd>Computer Engineering student</dd></div>
-        <!-- EDIT -->
-        <div><dt>Based</dt><dd data-slot>[ your city, country ]</dd></div>
-        <div><dt>Local</dt><dd><time data-clock>--:--</time></dd></div>
-        <div><dt>Status</dt><dd><span class="live" aria-hidden="true"></span>Open to internships</dd></div>
-      </dl>
+      <div class="hero__grid">
+        <dl class="hero__spec mono">
+          <div><dt>Role</dt><dd>Computer Engineering student</dd></div>
+          <div><dt>Studying</dt><dd>B.Tech, MIT-WPU</dd></div>
+          <div><dt>Focus</dt><dd>Software engineering</dd></div>
+          <div><dt>Local</dt><dd><time data-clock>--:--</time></dd></div>
+          <div><dt>Status</dt><dd><span class="live" aria-hidden="true"></span>Open to internships</dd></div>
+        </dl>
 
-      <div class="hero__lead" data-reveal>
-        <p>
-          I'm a Computer Engineering student at MIT-WPU, working the stack from both ends —
-          C and Python underneath, interfaces on top, data and machine learning in between.
-          The goal is range, not a single lane.
-        </p>
-        <p class="dim">
-          Everything below is something I actually built and can explain line by line.
-        </p>
-        <div class="hero__actions">
-          <a class="cta" href="#work" data-magnetic>
-            Selected work
-            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1v13M2.5 8.5 8 14l5.5-5.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-          </a>
-          <!-- EDIT: point at your real resume -->
-          <a class="cta cta--ghost" href="assets/resume.html" data-magnetic>Résumé</a>
+        <div class="hero__lead">
+          <p>
+            I work the stack from both ends — C and pointers underneath, machine learning in
+            between, interfaces on top. The goal is range, not a single lane.
+          </p>
+          <div class="hero__actions">
+            <a class="cta" href="#work" data-magnetic data-cursor-label="Work">
+              Selected work
+              <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1v13M2.5 8.5 8 14l5.5-5.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+            <a class="cta cta--ghost" href="assets/resume.html" data-magnetic data-cursor-label="Open">Résumé</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <p class="hero__cue mono" aria-hidden="true"><span>Scroll</span></p>
   </div>
 </section>
 
-<!-- 01 WORK ============================================= -->
-<section class="section" id="work" data-section="work">
+<!-- 01 IDENTITY ========================================= -->
+<section class="section section--alt" id="identity" data-section="identity">
   <div class="wrap">
     <header class="shead" data-reveal>
       <span class="idx">01</span>
-      <h2>Work</h2>
-      <p class="shead__note">
-        Case studies, not screenshots. Each entry states the problem, the decisions I made
-        and the part that broke first.
-      </p>
-    </header>
-
-    <div class="projects" data-peek-zone>
-
-      <!-- PROJECT 01 -->
-      <article class="project" data-peek="01">
-        <h3 class="project__h">
-          <button class="project__toggle" type="button" aria-expanded="false" aria-controls="case-01">
-            <span class="project__idx mono">01</span>
-            <span class="project__title">World Coffee Atlas</span>
-            <span class="project__sub mono">An interactive encyclopedia of coffee, mapped across the belt</span>
-            <span class="project__year mono">2026</span>
-            <span class="project__chev" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="case" id="case-01" data-open="false">
-          <div class="case__inner">
-            <div class="case__body">
-              <div class="field-block">
-                <h4 class="mono">The problem</h4>
-                <p>Coffee reference material is scattered — origin data on trade sites, tasting notes on retailer pages, brewing steps on separate blogs. There was no single place to go from &ldquo;where is this from&rdquo; to &ldquo;how do I brew it.&rdquo;</p>
-              </div>
-              <div class="field-block">
-                <h4 class="mono">What it is</h4>
-                <p>A single-page atlas: 47 regional coffee profiles across 25 producing countries, filterable by process, altitude and flavour family, with a world map, a variety encyclopedia, a processing lab, a brewing guide, and a quiz that recommends a coffee.</p>
-              </div>
-              <div class="field-block">
-                <h4 class="mono">Decisions worth defending</h4>
-                <ul>
-                  <li>Dependency-free by design — markup, styles, data and a hash-based router all live in one <code>index.html</code>, so it deploys anywhere with zero build step.</li>
-                  <li>Wrote a small store layer shaped like a REST API even though the data is static, so a real backend could sit behind it later without touching the UI.</li>
-                </ul>
-              </div>
-              <div class="field-block">
-                <h4 class="mono">Where it fought back</h4>
-                <p>The origins map needed real coastline geometry, not a placeholder grid — reprojecting Natural Earth land data by hand into the app&rsquo;s own coordinate system took longer than every other feature combined.</p>
-              </div>
-              <div class="field-block">
-                <h4 class="mono">Outcome</h4>
-                <p>Live. Every dataset is attributed to a real source (SCA/WCR, ICO, FAOSTAT), and the UI is explicit that sensory scores are editorial estimates, not claims about a specific farm or lot.</p>
-              </div>
-            </div>
-
-            <aside class="case__spec">
-              <dl class="mono">
-                <div><dt>Role</dt><dd>Solo build</dd></div>
-                <div><dt>Timeline</dt><dd>Aug 2026</dd></div>
-                <div><dt>Status</dt><dd>Live</dd></div>
-              </dl>
-              <div class="chips" role="list" aria-label="Technologies used">
-                <span role="listitem" class="chip">HTML</span>
-                <span role="listitem" class="chip">CSS</span>
-                <span role="listitem" class="chip">JavaScript</span>
-                <span role="listitem" class="chip">GSAP</span>
-              </div>
-              <div class="case__links">
-                <a href="https://github.com/LavyaS/world-coffee-atlas">Source &#8599;</a>
-                <a href="https://lustrous-peony-d2a063.netlify.app/">Live &#8599;</a>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 02 -->
-      <article class="project" data-peek="02">
-        <h3 class="project__h">
-          <button class="project__toggle" type="button" aria-expanded="false" aria-controls="case-02">
-            <span class="project__idx mono">02</span>
-            <span class="project__title">Anti-Gravity Simulation</span>
-            <span class="project__sub mono">A physics sandbox stabilized in real time by a PID controller</span>
-            <span class="project__year mono">2026</span>
-            <span class="project__chev" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="case" id="case-02" data-open="false">
-          <div class="case__inner">
-            <div class="case__body">
-              <div class="field-block"><h4 class="mono">The problem</h4><p>Most physics demos either hard-code stability or skip control entirely. I wanted to watch a controller actually reason about forces — correcting, overcorrecting, damping — instead of just watching things fall.</p></div>
-              <div class="field-block"><h4 class="mono">What it is</h4><p>A Flask API drives a NumPy-based Newtonian physics engine; a canvas frontend renders it live. Objects can be handed to an AI stabilizer that uses a PID controller plus rule-based overrides to hold them at a target position, with every correction logged and explained.</p></div>
-              <div class="field-block"><h4 class="mono">Decisions worth defending</h4>
-                <ul>
-                  <li>Split the physics engine, the stabilizer and the API into separate modules, so the control logic could be tuned independently of the simulation loop.</li>
-                  <li>Logged every AI decision by its proportional / integral / derivative contribution, not just the resulting force — so the stabilization is explainable, not a black box.</li>
-                </ul>
-              </div>
-              <div class="field-block"><h4 class="mono">Where it fought back</h4><p>Tuning the PID gains: too aggressive and objects overshoot and oscillate, too soft and they never settle. Got it stable with rule-based overrides on top — emergency damping past a velocity threshold, a push back toward center near boundaries.</p></div>
-              <div class="field-block"><h4 class="mono">Outcome</h4><p>Working end-to-end — REST API, physics engine and stabilizer, documented with UML diagrams in the repo. Runs locally via Flask; not deployed.</p></div>
-            </div>
-            <aside class="case__spec">
-              <dl class="mono">
-                <div><dt>Role</dt><dd>Solo build</dd></div>
-                <div><dt>Timeline</dt><dd>Jun 2026</dd></div>
-                <div><dt>Status</dt><dd>Prototype</dd></div>
-              </dl>
-              <div class="chips" role="list" aria-label="Technologies used">
-                <span role="listitem" class="chip">Python</span>
-                <span role="listitem" class="chip">Flask</span>
-                <span role="listitem" class="chip">NumPy</span>
-                <span role="listitem" class="chip">JavaScript</span>
-              </div>
-              <div class="case__links">
-                <a href="https://github.com/LavyaS/anti-gravity-simulation">Source &#8599;</a>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="more mono" data-reveal>
-      <a href="https://github.com/LavyaS">Everything else lives on GitHub &#8599;</a>
-    </p>
-  </div>
-
-  <div class="peek" data-peek-tile aria-hidden="true">
-    <span class="peek__idx mono">01</span>
-    <span class="peek__hint mono">Open case study</span>
-  </div>
-</section>
-
-<!-- 02 APPROACH ========================================= -->
-<section class="section section--alt" id="approach" data-section="approach">
-  <div class="wrap">
-    <header class="shead" data-reveal>
-      <span class="idx">02</span>
-      <h2>Approach</h2>
-      <p class="shead__note">How I got here and how I work. Short version.</p>
+      <h2>Identity</h2>
+      <p class="shead__note">Where I started, how I work, and what I'm building toward.</p>
     </header>
 
     <div class="approach">
-      <div class="approach__prose" data-reveal>
-        <p class="lede">
+      <div class="approach__prose">
+        <p class="lede" data-mask>
           I started with C because I wanted to know what a variable actually <em>is</em>.
           I'm at MIT-WPU for Computer Engineering, and I default to building over reading —
           a data structure makes sense to me once I've implemented it, not before.
         </p>
-        <p>
+        <p data-reveal>
           Most of what I know arrived the same way: something didn't work, and I refused to
           move on until it did. I read the error, then I read the source. It is slower than
           copying an answer and it is the only method that has ever compounded.
         </p>
-        <p>
+        <p data-reveal>
           I care about the parts nobody sees — how the data is shaped, what happens when the
           input is wrong, whether the thing still works on a slow phone with a bad connection.
           A feature that only works on the happy path isn't finished, it's demoed.
         </p>
-        <p>
+        <p data-reveal>
           The engineer I want to become can move from a memory layout to a trained model to
           a working interface without switching tools of thought. Systems, data and product
           aren't different careers to me. They're different ends of the same problem.
@@ -307,22 +183,230 @@
       <aside class="notes" data-reveal>
         <h3 class="mono notes__h">Field notes</h3>
         <dl>
-          <!-- EDIT: keep these current — they date fast -->
           <div><dt class="mono">Learning</dt><dd>Data structures in C, and the fundamentals of machine learning — encoding, preprocessing, classification.</dd></div>
           <div><dt class="mono">Building</dt><dd>World Coffee Atlas, and a set of data structures lab exercises in C.</dd></div>
           <div><dt class="mono">Curious about</dt><dd>Where machine learning stops being a notebook exercise and starts being part of real software.</dd></div>
-          <div><dt class="mono">Away from screens</dt><dd data-slot>[ something true and non-generic ]</dd></div>
         </dl>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- 03 STACK ============================================ -->
-<section class="section" id="stack" data-section="stack">
+<!-- 02 WORK — manifest ================================== -->
+<section class="section" id="work" data-section="work">
   <div class="wrap">
     <header class="shead" data-reveal>
-      <span class="idx">03</span>
+      <span class="idx">02</span>
+      <h2>Work</h2>
+      <p class="shead__note">
+        Two projects, written up properly. Each one states the problem, the decisions I made
+        and the part that broke first.
+      </p>
+    </header>
+
+    <ol class="manifest">
+      <li class="manifest__row" data-reveal>
+        <a href="#atlas" data-cursor-label="Read">
+          <span class="manifest__idx mono">03</span>
+          <span class="manifest__name">World Coffee Atlas</span>
+          <span class="manifest__sub mono">Interactive coffee encyclopedia &middot; 47 regional profiles</span>
+          <span class="manifest__meta mono">HTML &middot; CSS &middot; JS &middot; GSAP</span>
+          <span class="manifest__year mono">2026</span>
+          <span class="manifest__go mono" aria-hidden="true">Case study &#8595;</span>
+        </a>
+      </li>
+      <li class="manifest__row" data-reveal>
+        <a href="#simulation" data-cursor-label="Read">
+          <span class="manifest__idx mono">04</span>
+          <span class="manifest__name">Anti-Gravity Simulation</span>
+          <span class="manifest__sub mono">Physics engine with a PID-controlled stabilizer</span>
+          <span class="manifest__meta mono">Python &middot; Flask &middot; NumPy &middot; JS</span>
+          <span class="manifest__year mono">2026</span>
+          <span class="manifest__go mono" aria-hidden="true">Case study &#8595;</span>
+        </a>
+      </li>
+    </ol>
+
+    <p class="more mono" data-reveal>
+      <a href="https://github.com/LavyaS" data-cursor-label="GitHub">Everything else lives on GitHub &#8599;</a>
+    </p>
+  </div>
+</section>
+
+<!-- 03 WORLD COFFEE ATLAS — takeover ==================== -->
+<section class="takeover" id="atlas" data-section="atlas">
+
+  <div class="tk__stagewrap" data-scene="atlas">
+    <div class="tk__stage">
+      <div class="tk__title" aria-hidden="true">
+        <span class="tk__word"><span>World</span></span>
+        <span class="tk__word"><span>Coffee</span></span>
+        <span class="tk__word tk__word--hollow"><span>Atlas</span></span>
+      </div>
+
+      <figure class="belt" data-belt>
+        <figcaption class="belt__cap mono">
+          <span>Coffee belt</span>
+          <span class="dim">23.5&deg;N &mdash; 23.5&deg;S</span>
+        </figcaption>
+        <svg class="belt__svg" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Diagram of the tropical coffee belt with the producing countries covered by the project plotted by latitude and longitude.">
+          <g data-belt-grid></g>
+          <g data-belt-dots></g>
+        </svg>
+        <div class="belt__stats mono">
+          <span><b data-count="47">0</b> regional profiles</span>
+          <span><b data-count="25">0</b> producing countries</span>
+          <span><b data-count="82">0</b> flavour descriptors</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <div class="tk__body">
+    <div class="wrap">
+      <header class="tk__head" data-reveal>
+        <span class="idx">03</span>
+        <h2>World Coffee Atlas</h2>
+        <p class="tk__lede">
+          An interactive encyclopedia of coffee &mdash; origins, varieties, processing and
+          brewing &mdash; mapped across the tropical belt.
+        </p>
+      </header>
+
+      <div class="tk__fields">
+        <div class="field-block" data-reveal>
+          <h3 class="mono">The problem</h3>
+          <p>Coffee reference material is scattered &mdash; origin data on trade sites, tasting notes on retailer pages, brewing steps on separate blogs. There was no single place to go from &ldquo;where is this from&rdquo; to &ldquo;how do I brew it.&rdquo;</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">What I built</h3>
+          <p>A single-page atlas: 47 regional profiles across 25 producing countries, filterable by process, altitude and flavour family, with an origins map, a variety encyclopedia, a processing lab, a brewing guide and a recommendation quiz.</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Decisions worth defending</h3>
+          <ul>
+            <li>Dependency-free by design &mdash; markup, styles, data and a hash-based router all live in one <code>index.html</code>, so it deploys anywhere with zero build step.</li>
+            <li>Wrote a small store layer shaped like a REST API even though the data is static, so a real backend could sit behind it later without touching the UI.</li>
+          </ul>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Where it fought back</h3>
+          <p>The origins map needed real coastline geometry, not a placeholder grid &mdash; reprojecting Natural Earth land data by hand into the app&rsquo;s own coordinate system took longer than every other feature combined.</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Outcome</h3>
+          <p>Live. Every dataset is attributed to a real source (SCA/WCR, ICO, FAOSTAT), and the UI is explicit that sensory scores are editorial estimates, not claims about a specific farm or lot.</p>
+        </div>
+      </div>
+
+      <div class="tk__foot" data-reveal>
+        <dl class="mono tk__spec">
+          <div><dt>Role</dt><dd>Solo build</dd></div>
+          <div><dt>Stack</dt><dd>HTML &middot; CSS &middot; JavaScript &middot; GSAP</dd></div>
+          <div><dt>Status</dt><dd>Live</dd></div>
+        </dl>
+        <div class="tk__links">
+          <a class="cta" href="https://lustrous-peony-d2a063.netlify.app/" data-magnetic data-cursor-label="Visit">
+            Open the atlas
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </a>
+          <a class="cta cta--ghost" href="https://github.com/LavyaS/world-coffee-atlas" data-magnetic data-cursor-label="Source">Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ANTI-GRAVITY SIMULATION — takeover =============== -->
+<section class="takeover" id="simulation" data-section="simulation">
+
+  <div class="tk__stagewrap" data-scene="sim">
+    <div class="tk__stage tk__stage--sim">
+      <canvas class="sim__canvas" data-sim aria-hidden="true"></canvas>
+
+      <div class="tk__title tk__title--sim" aria-hidden="true">
+        <span class="tk__word"><span>Anti-</span></span>
+        <span class="tk__word"><span>Gravity</span></span>
+        <span class="tk__word tk__word--hollow"><span>Simulation</span></span>
+      </div>
+
+      <div class="sim__hud mono" data-sim-hud>
+        <div class="sim__hud-h">Stabilizer telemetry</div>
+        <div class="sim__hud-row"><span>controller</span><b>PID</b></div>
+        <div class="sim__hud-row"><span>proportional</span><b data-sim-p>0.00</b></div>
+        <div class="sim__hud-row"><span>integral</span><b data-sim-i>0.00</b></div>
+        <div class="sim__hud-row"><span>derivative</span><b data-sim-d>0.00</b></div>
+        <div class="sim__hud-row"><span>mean error</span><b data-sim-e>0.00</b></div>
+      </div>
+
+      <p class="sim__note mono">
+        <span>A real PID controller, running here in your browser &mdash; the same control
+        loop the Python project uses. Move your pointer to shift the target.</span>
+        <button type="button" class="sim__toggle" data-sim-toggle aria-pressed="true">
+          <span class="sim__toggle-dot" aria-hidden="true"></span>
+          <span data-sim-toggle-label>Stabilizer on</span>
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <div class="tk__body">
+    <div class="wrap">
+      <header class="tk__head" data-reveal>
+        <span class="idx">04</span>
+        <h2>Anti-Gravity Simulation</h2>
+        <p class="tk__lede">
+          A Newtonian physics engine with an AI stabilizer that holds objects against
+          gravity &mdash; and explains every correction it makes.
+        </p>
+      </header>
+
+      <div class="tk__fields">
+        <div class="field-block" data-reveal>
+          <h3 class="mono">The problem</h3>
+          <p>Most physics demos either hard-code stability or skip control entirely. I wanted to watch a controller actually reason about forces &mdash; correcting, overcorrecting, damping &mdash; instead of just watching things fall.</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">What I built</h3>
+          <p>A Flask API drives a NumPy-based Newtonian physics engine; a canvas frontend renders it live. Objects can be handed to an AI stabilizer that uses a PID controller plus rule-based overrides to hold them at a target position, with every correction logged and explained.</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Decisions worth defending</h3>
+          <ul>
+            <li>Split the physics engine, the stabilizer and the API into separate modules, so the control logic could be tuned independently of the simulation loop.</li>
+            <li>Logged every AI decision by its proportional / integral / derivative contribution, not just the resulting force &mdash; so the stabilization is explainable, not a black box.</li>
+          </ul>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Where it fought back</h3>
+          <p>Tuning the PID gains: too aggressive and objects overshoot and oscillate, too soft and they never settle. Got it stable with rule-based overrides on top &mdash; emergency damping past a velocity threshold, a push back toward centre near boundaries.</p>
+        </div>
+        <div class="field-block" data-reveal>
+          <h3 class="mono">Outcome</h3>
+          <p>Working end-to-end &mdash; REST API, physics engine and stabilizer, documented with UML diagrams in the repo. Runs locally via Flask; not deployed.</p>
+        </div>
+      </div>
+
+      <div class="tk__foot" data-reveal>
+        <dl class="mono tk__spec">
+          <div><dt>Role</dt><dd>Solo build</dd></div>
+          <div><dt>Stack</dt><dd>Python &middot; Flask &middot; NumPy &middot; JavaScript</dd></div>
+          <div><dt>Status</dt><dd>Prototype</dd></div>
+        </dl>
+        <div class="tk__links">
+          <a class="cta cta--ghost" href="https://github.com/LavyaS/anti-gravity-simulation" data-magnetic data-cursor-label="Source">Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 STACK ============================================ -->
+<section class="section section--alt" id="stack" data-section="stack">
+  <div class="wrap">
+    <header class="shead" data-reveal>
+      <span class="idx">05</span>
       <h2>Stack</h2>
       <p class="shead__note">Only what I've actually written. Grouped by what I reach for it for.</p>
     </header>
@@ -338,12 +422,12 @@
         </section>
 
         <section class="stack__group">
-          <h3 class="mono">Getting things done</h3>
+          <h3 class="mono">Data &amp; models</h3>
           <ul>
             <li><button type="button" class="tech" data-note="My default for scripts, automation and anything where the idea matters more than the microseconds.">Python</button></li>
+            <li><button type="button" class="tech" data-note="Vector maths for the physics engine behind the anti-gravity simulation.">NumPy</button></li>
+            <li><button type="button" class="tech" data-note="Encoding, preprocessing and classification — the fundamentals, on real datasets.">scikit-learn</button></li>
             <li><button type="button" class="tech" data-note="Schema, joins, and thinking about data as a shape before it is a screen.">SQL</button></li>
-            <li><button type="button" class="tech" data-note="The backend for a physics simulation — a small REST API in front of a NumPy engine.">Flask</button></li>
-            <li><button type="button" class="tech" data-note="Vector math for the physics engine behind the anti-gravity simulation.">NumPy</button></li>
           </ul>
         </section>
 
@@ -357,11 +441,10 @@
         </section>
 
         <section class="stack__group">
-          <h3 class="mono">Next up</h3>
+          <h3 class="mono">Serving it</h3>
           <ul>
-            <!-- EDIT: replace with what you're genuinely picking up -->
-            <li><button type="button" class="tech tech--soon" data-note="[ Why this one is next. ]" data-slot>[ Tech ]</button></li>
-            <li><button type="button" class="tech tech--soon" data-note="[ Why this one is next. ]" data-slot>[ Tech ]</button></li>
+            <li><button type="button" class="tech" data-note="A small REST API in front of the NumPy physics engine — routing, JSON, CORS.">Flask</button></li>
+            <li><button type="button" class="tech" data-note="Branching and history as a working habit, not a submission step.">Git</button></li>
           </ul>
         </section>
       </div>
@@ -373,43 +456,42 @@
   </div>
 </section>
 
-<!-- 04 TRAJECTORY ======================================= -->
-<section class="section section--alt" id="trajectory" data-section="trajectory">
+<!-- 06 CURRENTLY EXPLORING ============================== -->
+<section class="section" id="exploring" data-section="exploring">
   <div class="wrap">
     <header class="shead" data-reveal>
-      <span class="idx">04</span>
-      <h2>Trajectory</h2>
+      <span class="idx">06</span>
+      <h2>Exploring</h2>
       <p class="shead__note">
-        A log, kept honestly. I'm early — that's a fact, not an apology. Vague would be the
-        problem; junior isn't.
+        Open threads, not finished claims. This is where the next projects come from.
       </p>
     </header>
 
-    <ol class="log">
-      <li class="log__row" data-reveal>
-        <span class="log__when mono">2025</span>
-        <div class="log__what">
-          <h3>Machine learning coursework</h3>
-          <p>Started working through classical ML problems — encoding, preprocessing, classification — on datasets like Iris, in pandas and scikit-learn.</p>
+    <ol class="explore">
+      <li class="explore__row" data-reveal>
+        <span class="explore__idx mono">01</span>
+        <div>
+          <h3>Depth in data structures</h3>
+          <p>Working through implementations in C &mdash; sparse matrices, transposes, sorting and searching &mdash; because I want the cost of an operation to be something I feel, not something I look up.</p>
         </div>
       </li>
-      <li class="log__row" data-reveal>
-        <span class="log__when mono">2026</span>
-        <div class="log__what">
-          <h3>Anti-Gravity Simulation</h3>
-          <p>Built a Flask API around a NumPy physics engine, then a PID-controlled AI stabilizer that logs the reasoning behind every correction it makes.</p>
+      <li class="explore__row" data-reveal>
+        <span class="explore__idx mono">02</span>
+        <div>
+          <h3>Machine learning past the notebook</h3>
+          <p>I can encode, preprocess and classify. The open question is what changes when a model has to live inside real software &mdash; versioning, latency, and what happens when the input isn't from a clean dataset.</p>
         </div>
       </li>
-      <li class="log__row" data-reveal>
-        <span class="log__when mono">2026</span>
-        <div class="log__what">
-          <h3>World Coffee Atlas</h3>
-          <p>Shipped a single-file, dependency-free coffee encyclopedia — 47 regional profiles, an interactive origins map, a working content editor — deployed live.</p>
+      <li class="explore__row" data-reveal>
+        <span class="explore__idx mono">03</span>
+        <div>
+          <h3>Architecture at a larger size</h3>
+          <p>Both projects here are small enough that I could hold them in my head. I'm looking for the size where that stops being true, and learning the structure that takes over when it does.</p>
         </div>
       </li>
-      <li class="log__row log__row--now" data-reveal>
-        <span class="log__when mono">Now</span>
-        <div class="log__what">
+      <li class="explore__row explore__row--now" data-reveal>
+        <span class="explore__idx mono">Now</span>
+        <div>
           <h3>Looking for the first real one</h3>
           <p>
             An internship, an open-source team, or a founder who needs something built and is
@@ -424,11 +506,11 @@
 
 </main>
 
-<!-- 05 CONTACT ========================================== -->
+<!-- 07 CONTACT ========================================== -->
 <footer class="footer" id="contact" data-section="contact">
   <div class="wrap">
     <header class="shead shead--footer" data-reveal>
-      <span class="idx">05</span>
+      <span class="idx">07</span>
       <h2>Contact</h2>
     </header>
 
@@ -437,23 +519,24 @@
       <em>slightly too hard for me</em>.
     </p>
 
-    <a class="footer__mail" href="mailto:dlionc143@gmail.com" data-magnetic>
+    <a class="footer__mail" href="mailto:dlionc143@gmail.com" data-magnetic data-cursor-label="Email">
       <span>dlionc143@gmail.com</span>
     </a>
 
     <div class="footer__grid">
       <nav class="footer__links" aria-label="Elsewhere">
-        <a href="https://github.com/LavyaS" rel="me noopener"><span class="mono">01</span> GitHub <i aria-hidden="true">&#8599;</i></a>
-        <a href="https://linkedin.com/in/your-handle" rel="me noopener" data-slot><span class="mono">02</span> LinkedIn <i aria-hidden="true">&#8599;</i></a>
-        <a href="mailto:dlionc143@gmail.com"><span class="mono">03</span> Email <i aria-hidden="true">&#8599;</i></a>
-        <a href="assets/resume.html"><span class="mono">04</span> Résumé <i aria-hidden="true">&#8599;</i></a>
+        <a href="https://github.com/LavyaS" rel="me noopener" data-cursor-label="Visit"><span class="mono">01</span> GitHub <i aria-hidden="true">&#8599;</i></a>
+        <a href="https://lustrous-peony-d2a063.netlify.app/" rel="noopener" data-cursor-label="Visit"><span class="mono">02</span> World Coffee Atlas <i aria-hidden="true">&#8599;</i></a>
+        <a href="mailto:dlionc143@gmail.com" data-cursor-label="Email"><span class="mono">03</span> Email <i aria-hidden="true">&#8599;</i></a>
+        <a href="assets/resume.html" data-cursor-label="Open"><span class="mono">04</span> Résumé <i aria-hidden="true">&#8599;</i></a>
       </nav>
 
       <div class="colophon mono">
         <h3>Colophon</h3>
         <p>
           Set in Archivo, Newsreader and IBM Plex Mono. Hand-written HTML, CSS and
-          JavaScript — no framework, no build step, no dependencies.
+          JavaScript &mdash; no framework, no build step, no dependencies. The scroll
+          choreography is <code>position: sticky</code> and one animation frame loop.
         </p>
         <p class="dim">
           Press <kbd>G</kbd> to see the grid this is built on.
@@ -463,9 +546,9 @@
     </div>
 
     <div class="footer__base mono">
-      <span>&copy; <span data-year>2026</span> Lavya</span>
+      <span>&copy; <span data-year>2026</span> Lavya Singh Chauhan</span>
       <span class="dim">Built by hand</span>
-      <a href="#top" class="footer__top">Back to top &#8593;</a>
+      <a href="#top" class="footer__top" data-cursor-label="Top">Back to top &#8593;</a>
     </div>
   </div>
 </footer>
@@ -476,7 +559,7 @@
   <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="palette__search">
       <span class="mono dim" aria-hidden="true">&rsaquo;</span>
-      <input type="text" data-palette-input placeholder="Jump to…" aria-label="Search sections and links"
+      <input type="text" data-palette-input placeholder="Search portfolio…" aria-label="Search sections and links"
              role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false">
       <kbd class="mono">Esc</kbd>
     </div>
@@ -489,5 +572,6 @@
 </div>
 
 <script src="js/app.js" defer></script>
+<script src="js/scenes.js" defer></script>
 </body>
 </html>
